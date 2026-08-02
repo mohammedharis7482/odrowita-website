@@ -168,6 +168,15 @@ h2, .h2 {
 }
 .text-link:hover .line { width: 40px; }
 
+/* Generic gold accent divider — reused wherever the design calls for
+   a short gold dash above/beside a headline or paragraph. More specific
+   selectors (e.g. .statement .divider) override the width where needed. */
+.divider {
+  width: 44px;
+  height: 1px;
+  background: var(--gold);
+}
+
 /* =========================================================
    Header / Navigation
    ========================================================= */
@@ -396,6 +405,32 @@ h2, .h2 {
 .stat-bar-item .numeral { font-size: 14px; }
 
 /* =========================================================
+   Page hero — light, no-image hero used on About / Services /
+   Why Poland / Contact (headline left, subhead right, top-aligned)
+   ========================================================= */
+.page-hero { padding-top: clamp(140px, 16vw, 200px); }
+
+.page-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 5vw, 64px);
+  align-items: start;
+}
+
+.hero-subhead {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 6px;
+}
+
+.hero-subhead p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =========================================================
    Section scaffolding
    ========================================================= */
 .section {
@@ -442,6 +477,8 @@ h2, .h2 {
 .split .lede { margin-top: 20px; }
 .split .text-link { margin-top: 28px; }
 
+.section-intro { margin-bottom: clamp(36px, 5vw, 56px); }
+
 .section-navy .split-header .support-line { color: rgba(255,255,255,0.7); }
 
 /* =========================================================
@@ -474,6 +511,134 @@ h2, .h2 {
   line-height: 1.6;
   color: var(--muted);
 }
+
+/* =========================================================
+   Key-value data table (About — Based In / Legal Form / Focus)
+   ========================================================= */
+.data-table-intro { margin-bottom: 24px; }
+
+.data-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.data-table-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--line);
+  margin: 0;
+}
+
+.data-table-row:first-child { padding-top: 0; }
+.data-table-row:last-child { border-bottom: none; }
+
+.data-table-row dt {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.data-table-row dd {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  text-align: right;
+}
+
+/* =========================================================
+   Full-width photo strip (About — staircase image break)
+   ========================================================= */
+.photo-strip img {
+  width: 100%;
+  height: clamp(280px, 40vw, 480px);
+  object-fit: cover;
+  filter: grayscale(0.15) saturate(0.85) contrast(1.08);
+}
+
+/* =========================================================
+   Mission / Vision cards (About)
+   ========================================================= */
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.mission-card,
+.vision-card {
+  border-radius: 8px;
+  padding: clamp(28px, 4vw, 40px);
+}
+
+.mission-card {
+  background: var(--offwhite);
+  display: flex;
+  align-items: center;
+}
+
+.mission-card p {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.35;
+}
+
+.vision-card {
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vision-card p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* =========================================================
+   Numbered list with description (Core Values, Services list)
+   ========================================================= */
+.numbered-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.numbered-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 1.3fr;
+  gap: 24px;
+  align-items: center;
+  padding-block: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.numbered-row:first-child { padding-top: 0; }
+.numbered-row:last-child { border-bottom: none; }
+
+.numbered-row .numeral { font-size: 14px; }
+
+.numbered-row h3 {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.numbered-row p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.section-navy .numbered-row { border-bottom-color: rgba(255,255,255,0.12); }
+.section-navy .numbered-row h3 { color: var(--white); }
+.section-navy .numbered-row p { color: rgba(255,255,255,0.65); }
 
 /* =========================================================
    Dark statement / quote
@@ -776,11 +941,19 @@ h2, .h2 {
   .split,
   .split-header,
   .value-grid,
-  .cta-band {
+  .cta-band,
+  .page-hero-grid,
+  .mission-vision-grid {
     grid-template-columns: 1fr;
   }
 
   .split-header { align-items: start; }
+
+  .numbered-row {
+    grid-template-columns: 36px 1fr;
+  }
+
+  .numbered-row p { grid-column: 2; }
 
   .cta-band-right {
     flex-direction: column;
