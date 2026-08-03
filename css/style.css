@@ -563,6 +563,122 @@ h2, .h2 {
 }
 
 /* =========================================================
+   Contact detail list (Contact — Office / Email / Phone / Hours)
+   Label stacked above value, unlike the About data table's
+   side-by-side row layout.
+   ========================================================= */
+.contact-detail-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.contact-detail-row {
+  padding-block: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-detail-row:first-child { padding-top: 0; }
+.contact-detail-row:last-child { border-bottom: none; }
+
+.contact-detail-row dt {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.contact-detail-row dd {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.contact-note {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.contact-photo {
+  max-width: 320px;
+  margin-top: 28px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.contact-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: grayscale(0.15) saturate(0.85) contrast(1.08);
+}
+
+/* =========================================================
+   Contact form card
+   ========================================================= */
+.form-card {
+  background: var(--offwhite);
+  border-radius: 8px;
+  padding: clamp(28px, 4vw, 40px);
+}
+
+.form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.form-field .required { color: var(--gold); }
+
+.form-field input,
+.form-field textarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--charcoal);
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--white);
+  transition: border-color var(--transition);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--gold);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-card .btn { align-self: flex-start; }
+
+/* =========================================================
    Full-width photo strip (About — staircase image break)
    ========================================================= */
 .photo-strip img {
@@ -1006,7 +1122,8 @@ h2, .h2 {
   .value-grid,
   .cta-band,
   .page-hero-grid,
-  .mission-vision-grid {
+  .mission-vision-grid,
+  .form-row {
     grid-template-columns: 1fr;
   }
 
