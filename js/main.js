@@ -105,7 +105,7 @@
         message
       ];
 
-      var mailto = 'mailto:info@yourdomain.com' +
+      var mailto = 'mailto:Info@odrowita.com' +
         '?subject=' + encodeURIComponent(subject) +
         '&body=' + encodeURIComponent(bodyLines.join('\n'));
 
