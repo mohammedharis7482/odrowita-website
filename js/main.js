@@ -14,11 +14,14 @@
   var header = document.querySelector('.site-header');
   if (header && !header.classList.contains('is-solid')) {
     var threshold = 80;
+    var headerLogo = header.querySelector('.logo-mark');
     var setHeaderState = function () {
       if (window.scrollY > threshold) {
         header.classList.add('is-solid');
+        if (headerLogo) headerLogo.src = 'assets/logo/logo-icon.png';
       } else {
         header.classList.remove('is-solid');
+        if (headerLogo) headerLogo.src = 'assets/logo/logo-icon-white.png';
       }
     };
     setHeaderState();
