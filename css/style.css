@@ -173,6 +173,8 @@ h2, .h2 {
   font-weight: 600;
   font-size: 15px;
   color: var(--navy);
+  padding-block: 14px;
+  margin-block: -14px;
 }
 .text-link .line {
   display: inline-block;
@@ -292,10 +294,11 @@ h2, .h2 {
 .nav-toggle {
   display: none;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   gap: 5px;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   background: transparent;
   border: none;
   padding: 0;
@@ -306,7 +309,7 @@ h2, .h2 {
 .nav-toggle::after {
   content: '';
   display: block;
-  width: 100%;
+  width: 24px;
   height: 2px;
   background: var(--white);
   transition: background var(--transition);
@@ -666,7 +669,7 @@ h2, .h2 {
   font-family: var(--font-body);
   font-size: 15px;
   color: var(--charcoal);
-  padding: 12px 14px;
+  padding: 13px 14px;
   border: 1px solid var(--line);
   border-radius: 6px;
   background: var(--white);
@@ -746,30 +749,16 @@ h2, .h2 {
   padding: clamp(24px, 3vw, 32px);
 }
 
-.map-card .map-image {
+.map-card svg {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px;
   margin-bottom: 16px;
-}
-
-.map-card .map-legend {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--navy);
-  margin-bottom: 6px;
 }
 
 .map-card .map-caption {
   font-size: 13px;
   color: var(--muted);
-}
-
-.map-card .map-attribution {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 10px;
 }
 
 /* =========================================================
@@ -1082,6 +1071,14 @@ h2, .h2 {
   font-style: normal;
   color: rgba(255,255,255,0.75);
   transition: color var(--transition);
+}
+
+/* Padding + matching negative margin grows the tap target to ~44px
+   tall without disturbing the list's visual gap-based spacing. */
+.footer-col a {
+  display: inline-block;
+  padding-block: 14px;
+  margin-block: -14px;
 }
 
 .footer-col a:hover { color: var(--white); }
