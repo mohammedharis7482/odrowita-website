@@ -746,16 +746,30 @@ h2, .h2 {
   padding: clamp(24px, 3vw, 32px);
 }
 
-.map-card svg {
+.map-card .map-image {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 4px;
   margin-bottom: 16px;
+}
+
+.map-card .map-legend {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
 }
 
 .map-card .map-caption {
   font-size: 13px;
   color: var(--muted);
+}
+
+.map-card .map-attribution {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 10px;
 }
 
 /* =========================================================
