@@ -28,6 +28,20 @@
     window.addEventListener('scroll', setHeaderState, { passive: true });
   }
 
+  /* ---------- Keep the fixed header pinned during mobile keyboard resize ----------
+     Focusing a form field (Contact page) opens the on-screen keyboard on
+     mobile, which shrinks the *visual* viewport. position:fixed elements
+     stay anchored to the layout viewport, so on some mobile browsers the
+     header can appear to drift or clip while the keyboard is open. Nudging
+     it to the visual viewport's offset keeps it correctly pinned. */
+  if (header && window.visualViewport) {
+    var syncHeaderToViewport = function () {
+      header.style.top = window.visualViewport.offsetTop + 'px';
+    };
+    window.visualViewport.addEventListener('resize', syncHeaderToViewport);
+    window.visualViewport.addEventListener('scroll', syncHeaderToViewport);
+  }
+
   /* ---------- Mobile nav drawer ---------- */
   var navToggle = document.querySelector('.nav-toggle');
   var mobileNav = document.querySelector('.mobile-nav');
