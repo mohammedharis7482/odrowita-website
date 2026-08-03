@@ -33,6 +33,7 @@
   function openMobileNav() {
     if (!mobileNav) return;
     mobileNav.classList.add('is-open');
+    mobileNav.removeAttribute('inert');
     navToggle.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
@@ -40,6 +41,7 @@
   function closeMobileNav() {
     if (!mobileNav) return;
     mobileNav.classList.remove('is-open');
+    mobileNav.setAttribute('inert', '');
     navToggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }

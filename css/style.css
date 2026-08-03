@@ -8,16 +8,24 @@
   --navy: #0B1D3A;
   --navy-deep: #081527;
   --gold: #C8A76A;
+  /* Darker gold used only for small eyebrow text on light backgrounds —
+     --gold itself stays the brand color for buttons, icons, numerals,
+     dividers, and anything already on a navy background. Darkened past
+     the initially-suggested #9C7A45 (which only measured ~4:1) to
+     actually clear 4.5:1 on both white and offwhite. */
+  --gold-text: #7A6440;
   --white: #FFFFFF;
   --offwhite: #F7F5F0;
   --charcoal: #2A2F36;
-  --muted: #767B85;
+  --muted: #6B707A;
   --line: #EDEBE5;
 
   --font-body: 'Poppins', Arial, Helvetica, sans-serif;
 
   --container-width: 1280px;
   --gutter: clamp(24px, 5vw, 80px);
+
+  --radius-card: 8px;
 
   --transition: 0.3s ease;
 }
@@ -90,8 +98,15 @@ textarea:focus-visible {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 16px;
+}
+
+/* Eyebrows on a photo hero or navy background sit on a dark surface,
+   where the original brand --gold already reads at full contrast. */
+.hero .eyebrow,
+.section-navy .eyebrow {
+  color: var(--gold);
 }
 
 h1, .h1 {
@@ -326,6 +341,11 @@ h2, .h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Shared color-grade filter applied via class on the <img> itself,
+   used on every photographic image sitewide for cross-page consistency. */
+.img-graded {
   filter: grayscale(0.15) saturate(0.85) contrast(1.08);
 }
 
@@ -452,18 +472,6 @@ h2, .h2 {
 .section-navy { background: var(--navy); color: var(--white); }
 .section--no-top { padding-top: 0; }
 
-.placeholder-section {
-  padding-top: 200px;
-  text-align: center;
-}
-
-.placeholder-section .lede {
-  margin: 20px auto 0;
-  max-width: 520px;
-}
-
-.placeholder-section .btn { margin-top: 32px; }
-
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -503,7 +511,7 @@ h2, .h2 {
 
 .value-card {
   background: var(--offwhite);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   padding: 28px 26px;
 }
 
@@ -606,7 +614,7 @@ h2, .h2 {
 .contact-photo {
   max-width: 320px;
   margin-top: 28px;
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   overflow: hidden;
 }
 
@@ -614,7 +622,6 @@ h2, .h2 {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  filter: grayscale(0.15) saturate(0.85) contrast(1.08);
 }
 
 /* =========================================================
@@ -622,7 +629,7 @@ h2, .h2 {
    ========================================================= */
 .form-card {
   background: var(--offwhite);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   padding: clamp(28px, 4vw, 40px);
 }
 
@@ -685,7 +692,6 @@ h2, .h2 {
   width: 100%;
   height: clamp(280px, 40vw, 480px);
   object-fit: cover;
-  filter: grayscale(0.15) saturate(0.85) contrast(1.08);
 }
 
 /* =========================================================
@@ -699,7 +705,7 @@ h2, .h2 {
 
 .mission-card,
 .vision-card {
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   padding: clamp(28px, 4vw, 40px);
 }
 
@@ -736,7 +742,7 @@ h2, .h2 {
 .map-card {
   background: var(--offwhite);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   padding: clamp(24px, 3vw, 32px);
 }
 
@@ -858,7 +864,7 @@ h2, .h2 {
 .featured-card {
   background: var(--navy);
   color: var(--white);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   padding: clamp(28px, 4vw, 40px);
   display: flex;
   flex-direction: column;
@@ -903,7 +909,7 @@ h2, .h2 {
   min-width: 24px;
 }
 
-.discipline-row h4 {
+.discipline-row h3 {
   font-size: 17px;
   font-weight: 600;
   color: var(--navy);
