@@ -125,12 +125,27 @@
       </div>
 
       <div class="map-card reveal">
-        <img src="https://staticmap.openstreetmap.de/staticmap.php?center=52.6,16.5&zoom=6&size=700x700&maptype=mapnik&markers=53.4285,14.5528,ol-marker-green|52.5200,13.4050,ol-marker-blue|52.2297,21.0122,ol-marker-blue"
-             alt="Map of Central Europe with Szczecin, Berlin, and Warsaw marked at their real coordinates"
-             class="img-graded map-image" loading="lazy">
-        <p class="map-legend">Szczecin &middot; Berlin &middot; Warsaw</p>
+        <svg viewBox="0 0 620 500" role="img" aria-labelledby="mapTitle mapDesc">
+          <title id="mapTitle">Map of Central Europe</title>
+          <desc id="mapDesc">Szczecin marked with a dashed line to Berlin; Warsaw marked to the east. City positions plotted from real coordinates.</desc>
+          <path d="M140,60 Q350,20 520,90 Q580,150 560,200 Q540,260 480,280 Q380,320 300,300 Q180,320 120,260 Q40,200 70,150 Q90,90 140,60 Z"
+                fill="#F7F5F0" stroke="#0B1D3A" stroke-width="1.5"/>
+          <text x="310" y="65" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="11" letter-spacing="1" fill="#6B707A">CENTRAL EUROPE</text>
+
+          <line x1="202" y1="112" x2="151" y2="177" stroke="#0B1D3A" stroke-width="1" stroke-dasharray="4 4"/>
+
+          <circle cx="202" cy="112" r="6" fill="#C8A76A"/>
+          <text x="214" y="108" font-family="Poppins, Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1D3A">Szczecin</text>
+
+          <circle cx="151" cy="177" r="4.5" fill="#0B1D3A"/>
+          <text x="163" y="182" font-family="Poppins, Arial, sans-serif" font-size="13" fill="#6B707A">Berlin</text>
+
+          <circle cx="488" cy="198" r="4.5" fill="#0B1D3A"/>
+          <text x="500" y="202" font-family="Poppins, Arial, sans-serif" font-size="13" fill="#6B707A">Warsaw</text>
+
+          <text x="90" y="300" font-family="Poppins, Arial, sans-serif" font-size="11" letter-spacing="0.5" fill="#6B707A">GERMANY / EU</text>
+        </svg>
         <p class="map-caption">140 km from Berlin &middot; Baltic seaport &middot; A6/S3 corridor</p>
-        <p class="map-attribution">Map data &copy; OpenStreetMap contributors</p>
       </div>
     </div>
   </section>
