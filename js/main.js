@@ -6,9 +6,13 @@
 (function () {
   'use strict';
 
-  /* ---------- Header: solid background after scrolling past hero ---------- */
+  /* ---------- Header: solid background after scrolling past hero ----------
+     Pages with a photo hero (e.g. Home) start with a transparent header
+     and toggle to solid on scroll. Pages that hardcode is-solid on the
+     <header> (About, Services, Contact — no photo behind the nav) want it
+     permanently solid, so the scroll listener must never touch them. */
   var header = document.querySelector('.site-header');
-  if (header) {
+  if (header && !header.classList.contains('is-solid')) {
     var threshold = 80;
     var setHeaderState = function () {
       if (window.scrollY > threshold) {
