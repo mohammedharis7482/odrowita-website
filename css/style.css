@@ -442,7 +442,10 @@ h2, .h2 {
    Page hero — light, no-image hero used on About / Services /
    Why Poland / Contact (headline left, subhead right, top-aligned)
    ========================================================= */
-.page-hero { padding-top: clamp(140px, 16vw, 200px); }
+/* Combined selector (not just .page-hero) so this reliably beats
+   .section's own padding-block-start for the same physical edge,
+   regardless of source order — .section always sets padding-block. */
+.section.page-hero { padding-top: clamp(140px, 16vw, 200px); }
 
 .page-hero-grid {
   display: grid;
