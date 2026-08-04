@@ -669,6 +669,8 @@ h2, .h2 {
 
 .form-field input,
 .form-field textarea {
+  -webkit-appearance: none;
+  appearance: none;
   font-family: var(--font-body);
   font-size: 15px;
   color: var(--charcoal);
